@@ -18,13 +18,13 @@ class PayrollDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        $dataTable->addColumn('employee_full_name', function (Payroll $payrolls) {
-            return $payrolls->employee->full_name ?? 'N/A';
+        // Add employee name columnAllowances
+        $dataTable->addColumn('employee_id', function (Payroll $payroll) {
+            return $payroll->employee->first_name ?? 'N/A'; // Replace 'full_name' with the actual field in the Employee model
         });
+           
 
-        $dataTable->addColumn('action', 'payrolls.datatables_actions');
-
-        return $dataTable;
+        return $dataTable->addColumn('action', 'payrolls.datatables_actions');
     }
 
     /**
@@ -72,16 +72,12 @@ class PayrollDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'employee_full_name',
-            'salary_id',
-            'payment_period',
-            'total_earning',
-            'total_deductions',
-            'net_pay',
-            'status',
-            'pay_slip'
+            'employee_id'  => ['title' => 'Employee Name'],
+            'generated_date'
         ];
     }
+
+    // 'level_name' => ['name' => 'level.name', 'data' => 'level.name'],
 
     /**
      * Get filename for export.

@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\DocumentationRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Employees;
 use Flash;
 
 class DocumentationController extends AppBaseController
@@ -35,7 +36,9 @@ class DocumentationController extends AppBaseController
      */
     public function create()
     {
-        return view('documentations.create');
+        $employees = Employees::pluck('first_name', 'id');
+        
+        return view('documentations.create', compact('employees'));
     }
 
     /**

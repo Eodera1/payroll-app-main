@@ -1,7 +1,7 @@
-<!-- Employee Id Field -->
+<!-- Deduction Name Field -->
 <div class="col-sm-12">
-    {!! Form::label('employee_id', 'Employee Id:') !!}
-    <p>{{ $deduction->employee_id }}</p>
+    {!! Form::label('deduction_name', 'Deduction Name:') !!}
+    <p>{{ $deduction->deduction_name }}</p>
 </div>
 
 <!-- Deduction Type Field -->
@@ -14,11 +14,5 @@
 <div class="col-sm-12">
     {!! Form::label('amount', 'Amount:') !!}
     <p>{{ $deduction->amount }}</p>
-</div>
-
-<!-- Date Applied Field -->
-<div class="col-sm-12">
-    {!! Form::label('date_applied', 'Date Applied:') !!}
-    <p>{{ $deduction->date_applied }}</p>
 </div>
 

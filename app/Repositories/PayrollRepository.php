@@ -9,13 +9,8 @@ class PayrollRepository extends BaseRepository
 {
     protected $fieldSearchable = [
         'employee_id',
-        'salary_id',
-        'payment_period',
-        'total_earning',
-        'total_deductions',
-        'net_pay',
-        'status',
-        'pay_slip'
+        'month',
+        'year'
     ];
 
     public function getFieldsSearchable(): array

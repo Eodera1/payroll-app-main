@@ -34,3 +34,8 @@ Route::resource('promotions', App\Http\Controllers\PromotionController::class);
 Route::resource('leaves', App\Http\Controllers\LeaveController::class);
 Route::resource('leavetypes', App\Http\Controllers\LeavetypeController::class);
 Route::resource('deductions', App\Http\Controllers\DeductionController::class);
+
+
+Route::resource('employee_allowances', App\Http\Controllers\EmployeeAllowanceController::class);
+Route::resource('employee_deductions', App\Http\Controllers\EmployeeDeductionController::class);
+Route::resource('employee-deductions', App\Http\Controllers\EmployeeDeductionController::class);

@@ -61,15 +61,15 @@
         </div>
 
         <div class="col-md-3 mb-3">
-            <div class="card text-white bg-warning">
+            <div class="card text-white bg-info">
                 <div class="card-header">
-                    <h4>Records</h4>
+                    <h4>Documentations</h4>
                 </div>
                 <div class="card-body">
-                    <p class="text-center">{{ $totalEmployeerecords }}</p>
+                    <p class="text-center">{{ $totalDocumentations }}</p>
                     <div class="border-top">
                         <a href="{{ route('employees.index') }}" class="text-white">
-                            View Records
+                            View Documentations
                         </a>
                     </div>
                 </div>

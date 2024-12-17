@@ -8,11 +8,8 @@ use App\Repositories\BaseRepository;
 class AllowanceRepository extends BaseRepository
 {
     protected $fieldSearchable = [
-        'employee_id',
         'allowance_type',
-        'amount',
-        'date_granted',
-        'allowance_privilage'
+        'amount'
     ];
 
     public function getFieldsSearchable(): array

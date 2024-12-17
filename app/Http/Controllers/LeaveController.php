@@ -8,6 +8,9 @@ use App\Http\Requests\UpdateLeaveRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\LeaveRepository;
 use Illuminate\Http\Request;
+use App\Models\Employees;
+use App\Models\Leavetype;
+use App\Models\Department;
 use Flash;
 
 class LeaveController extends AppBaseController
@@ -34,7 +37,11 @@ class LeaveController extends AppBaseController
      */
     public function create()
     {
-        return view('leaves.create');
+        $employees = Employees::pluck('first_name', 'id');
+        $leavetypes = Leavetype::pluck('leave_name', 'id');
+        $department = Department::pluck('department_name', 'id');
+
+        return view('leaves.create', compact('employees', 'leavetypes', 'department'));
     }
 
     /**

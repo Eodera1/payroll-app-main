@@ -3,43 +3,31 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
 class Allowance extends Model
 {
     public $table = 'allowances';
 
     public $fillable = [
-        'employee_id',
         'allowance_type',
-        'amount',
-        'date_granted',
-        'allowance_privilage'
+        'amount'
     ];
 
     protected $casts = [
         'allowance_type' => 'string',
-        'amount' => 'decimal:0',
-        'date_granted' => 'date',
-        'allowance_privilage' => 'string'
+        'amount' => 'decimal:0'
     ];
 
     public static array $rules = [
-        'employee_id' => 'nullable',
-        'allowance_type' => 'nullable|string|max:100',
+        'allowance_type' => 'nullable|string|max:65535',
         'amount' => 'nullable|numeric',
-        'date_granted' => 'nullable',
-        'allowance_privilage' => 'nullable|string|max:100',
-        // 'updated_at' => 'required',
-        // 'created_at' => 'required'
+        'created_at',
+        'updated_at' 
     ];
 
-    public function employee()
+    public function employeeAllowances()
     {
-        return $this->belongsTo(Employees::class, 'employee_id');
+        return $this->hasMany(EmployeeAllowance::class, 'allowance_id');
     }
-    public function getDateGrantedAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d');
-    }
+
 }

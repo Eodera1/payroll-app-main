@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use App\Models\Department;
-use App\Models\Employeerecord;
 use App\Models\Employees;
+use App\Models\Documentation;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,13 +33,14 @@ class HomeController extends Controller
 
         $totalAttendances = Attendance::count();
 
-        $totalEmployeerecords = Employeerecord::count();
+        $totalDocumentations = Documentation::count();
 
-        $employeeCountsByDepartment = Employees::selectRaw('department, count(*) as count')
-            ->groupBy('department')
+
+        $employeeCountsByDepartment = Employees::selectRaw('department_id, count(*) as count')
+            ->groupBy('department_id')
             ->get()
-            ->keyBy('department')
+            ->keyBy('department_id')
             ->map(fn($item) => $item->count);
-        return view('home', compact('totalEmployees', 'totalDepartments', 'totalAttendances', 'totalEmployeerecords', 'employeeCountsByDepartment'));
+        return view('home', compact('totalEmployees', 'totalDepartments', 'totalAttendances', 'totalDocumentations', 'employeeCountsByDepartment'));
     }
 }

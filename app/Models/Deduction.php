@@ -3,38 +3,33 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
 class Deduction extends Model
 {
     public $table = 'deductions';
 
     public $fillable = [
-        'employee_id',
+        'deduction_name',
         'deduction_type',
-        'amount',
-        'date_applied'
+        'amount'
     ];
 
     protected $casts = [
+        'deduction_name' => 'string',
         'deduction_type' => 'string',
-        'amount' => 'decimal:0',
-        'date_applied' => 'date'
+        'amount' => 'decimal:0'
     ];
 
     public static array $rules = [
-        'employee_id' => 'nullable',
-        'deduction_type' => 'nullable|string|max:65535',
+        'deduction_name' => 'nullable|string|max:100',
+        'deduction_type' => 'nullable|string|max:100',
         'amount' => 'nullable|numeric',
-        'date_applied' => 'nullable'
+        'created_at',
+        'updated_at'
     ];
 
-    public function employee(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function employeeDeductions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsTo(\App\Models\Employee::class, 'employee_id');
-    }
-    public function getDateAppliedAttribute($value)
-    {
-        return Carbon::parse($value)->format('Y-m-d');
+        return $this->hasMany(\App\Models\EmployeeDeduction::class, 'deduction_id');
     }
 }

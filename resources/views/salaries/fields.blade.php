@@ -1,6 +1,6 @@
 <!-- Employee Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('employee_id', 'Employee Id:') !!}
+    {!! Form::label('employee_id', 'Employee Name:') !!}
     {!! Form::select('employee_id', $employees, null, ['class' => 'form-control','placeholder' => 'Select Employee']) !!}
 </div>
 

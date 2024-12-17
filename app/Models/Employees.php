@@ -45,7 +45,7 @@ class Employees extends Model
         'email' => 'nullable|string|max:100',
         'phone_number' => 'nullable|string|max:100',
         'physical_address' => 'nullable|string|max:100',
-        'department' => 'nullable',
+        'department_id' => 'required',
         'hire_date' => 'nullable',
         'salary' => 'nullable|numeric',
         'disability_status' => 'nullable|string|max:100',
@@ -62,6 +62,13 @@ class Employees extends Model
     {
         return $this->hasMany(Allowance::class, 'employee_id');
     }
+
+    public function employeeAllowances()
+    {
+        return $this->hasMany(EmployeeAllowance::class, 'employee_id');
+    }
+    
+
 
     public function attendances()
     {

@@ -9,5 +9,3 @@
     {!! Form::label('manager_id', 'Manager:') !!}
     {!! Form::select('manager_id', $employees, null, ['class' => 'form-control', 'placeholder' => 'Select Employee',]) !!}
 </div>
-
-

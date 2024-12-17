@@ -1,19 +1,20 @@
 <!-- Employee Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('employee_id', 'Employee Id:') !!}
-    {!! Form::number('employee_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('employee_id', 'Employee Name:') !!}
+    {!! Form::select('employee_id', $employees, null, ['class' => 'form-control', 'placeholder' => 'Select Employee', 'required']) !!}
 </div>
 
 <!-- Leave Type Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('leave_type_id', 'Leave Type Id:') !!}
-    {!! Form::number('leave_type_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('leave_type_id', 'Leave Type Name:') !!}
+    {!! Form::select('leave_type_id', $leavetypes, null, ['class' => 'form-control', 'placeholder' => 'Select Leavetype']) !!}
 </div>
+
 
 <!-- Department Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('department_id', 'Department Id:') !!}
-    {!! Form::number('department_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('department_id', 'Department Name:') !!}
+    {!! Form::select('department_id', $department, null, ['class' => 'form-control', 'placeholder' => 'Select Department']) !!}
 </div>
 
 <!-- Start Date Field -->

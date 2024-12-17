@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePayrollRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\PayrollRepository;
 use Illuminate\Http\Request;
+use App\Models\Employees;
 use Flash;
 
 class PayrollController extends AppBaseController
@@ -34,7 +35,9 @@ class PayrollController extends AppBaseController
      */
     public function create()
     {
-        return view('payrolls.create');
+        $employees = Employees::pluck('first_name', 'id');
+
+        return view('payrolls.create', compact('employees'));
     }
 
     /**

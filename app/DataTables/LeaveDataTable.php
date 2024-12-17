@@ -81,8 +81,8 @@ class LeaveDataTable extends DataTable
     {
         return [
             'employee_full_name',
-            'leave_type_id',
-            'department_id',
+            'leave_type_id' => ['title' => 'Leave Type'],
+            'department_id' => ['title' => 'Department Name'],
             'start_date',
             'end_date',
             'duration',

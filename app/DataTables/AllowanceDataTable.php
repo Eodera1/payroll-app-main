@@ -18,13 +18,7 @@ class AllowanceDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        $dataTable->addColumn('employee_full_name', function (Allowance $allowances) {
-            return $allowances->employee->full_name ?? 'N/A';
-        });
-
-        $dataTable->addColumn('action', 'allowances.datatables_actions');
-
-        return $dataTable;
+        return $dataTable->addColumn('action', 'allowances.datatables_actions');
     }
 
     /**
@@ -72,11 +66,8 @@ class AllowanceDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'employee_full_name',
             'allowance_type',
-            'amount',
-            'date_granted',
-            'allowance_privilage'
+            'amount'
         ];
     }
 

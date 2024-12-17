@@ -31,7 +31,7 @@
 <<!-- Department Id Field -->
 <div class="col-sm-12">
     {!! Form::label('department', 'Department:') !!}
-    <p>{{ $employee->department->name }}</p>
+    <p>{{ $employees->department->department_name }}</p>
 </div>
 
 <!-- Hire Date Field -->

@@ -1,7 +1,7 @@
 [
     {
-        "name": "# id",
-        "dbType": "integer,false",
+        "name": "id",
+        "dbType": "integer,true",
         "htmlType": "number",
         "validations": "",
         "searchable": false,
@@ -24,79 +24,7 @@
         "inView": true
     },
     {
-        "name": "salary_id",
-        "dbType": "integer,false",
-        "htmlType": "number",
-        "validations": "nullable|nullable",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "payment_period",
-        "dbType": "integer,false",
-        "htmlType": "number",
-        "validations": "nullable|nullable",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "total_earning",
-        "dbType": "integer,false",
-        "htmlType": "number",
-        "validations": "nullable|nullable",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "total_deductions",
-        "dbType": "integer,false",
-        "htmlType": "number",
-        "validations": "nullable|nullable",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "net_pay",
-        "dbType": "integer,false",
-        "htmlType": "number",
-        "validations": "nullable|nullable",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "status",
-        "dbType": "string",
-        "htmlType": "text",
-        "validations": "nullable|string|max:1|nullable|string|max:1",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "pay_slip",
+        "name": "month",
         "dbType": "string",
         "htmlType": "text",
         "validations": "nullable|string|max:100|nullable|string|max:100",
@@ -108,11 +36,43 @@
         "inView": true
     },
     {
-        "type": "relation",
-        "relation": "mt1,Employee,employee_id"
+        "name": "year",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": "nullable|string|max:100|nullable|string|max:100",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "updated_at",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "required",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+    {
+        "name": "created_at",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "required",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
     },
     {
         "type": "relation",
-        "relation": "mt1,Salary,salary_id"
+        "relation": "mt1,Employee,employee_id"
     }
 ]

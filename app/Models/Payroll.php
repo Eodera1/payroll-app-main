@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,29 +11,18 @@ class Payroll extends Model
 
     public $fillable = [
         'employee_id',
-        'salary_id',
-        'payment_period',
-        'total_earning',
-        'total_deductions',
-        'net_pay',
-        'status',
-        'pay_slip'
+        'generated_date'
     ];
 
     protected $casts = [
-        'status' => 'string',
-        'pay_slip' => 'string'
+        'generated_date' => 'date',
     ];
 
     public static array $rules = [
         'employee_id' => 'nullable',
-        'salary_id' => 'nullable',
-        'payment_period' => 'nullable',
-        'total_earning' => 'nullable',
-        'total_deductions' => 'nullable',
-        'net_pay' => 'nullable',
-        'status' => 'nullable|string|max:1',
-        'pay_slip' => 'nullable|string|max:100'
+        'generated_date' => 'nullable',
+        'updated_at',
+        'created_at' 
     ];
 
     public function employee()
@@ -40,8 +30,8 @@ class Payroll extends Model
         return $this->belongsTo(Employees::class, 'employee_id');
     }
 
-    public function salary()
+    public function getGeneratedDateAttribute($value)
     {
-        return $this->belongsTo(Salaries::class, 'salary_id');
+        return Carbon::parse($value)->format('Y-m-d');
     }
 }
