@@ -61,7 +61,7 @@
 <!-- Job Basis Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('job_basis', 'Job Basis:') !!}
-    {!! Form::text('job_basis', null, ['class' => 'form-control', 'maxlength' => 100, 'maxlength' => 100]) !!}
+    {!! Form::select('job_basis', ['contracts' => 'Contracts', 'permanent' => 'Permanent', 'internship' => 'internship', 'part_time' => 'Part_Time', 'hourly' => 'Hourly'], null, ['class' => 'form-control', 'placeholder' => 'select job_basis', 'required']) !!}
 </div>
 
 <!-- Emergency Contact Field -->
